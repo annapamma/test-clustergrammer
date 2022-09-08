@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css">
+  </head>
+  <body>
+    <div id="app" height="100vh"></div>
+  </body>
+
+  <!-- example data -->
+  <script src="data.js"></script>
+  
+  <!-- Required JS Libraries -->
+  <script src="static/lib/js/d3.js"></script>
+  <script src="static/lib/js/jquery-1.11.2.min.js"></script>
+  <script src="static/lib/js/jquery-ui.js"></script>
+  <script src="static/lib/js/bootstrap.min.js"></script>
+  <script src="static/lib/js/underscore-min.js"></script>
+  <script src="static/lib/js/blockUI.js"></script>
+
+  <!-- Clustergrammer JS -->
+  <script src='static/js/clustergrammer.v1.19.4.js'></script>
+  
+  <script>
+    window._config = {
+      ENTRY_POINT: "/",
+    }
+  </script>
+
+  <script>
+    console.log(data)
+    // the visualization JSON (produced by Clustergrammer-PY)
+    // var network_data = {
+    //                       "row_nodes":[...],
+    //                       "col_nodes":[...],
+    //                       "mat": [...]
+    //                     }
+
+    // args must contain root of container and the visualization JSON
+    var args = {
+      'root': '#app',
+      'network_data': data
+    }
+
+    
+    // Clustergrammer returns a Clustergrammer object in addition to making
+    // the visualization
+    var cgm = Clustergrammer(args);
+    console.log('cgm: ', cgm)
+  </script>
+</html>
